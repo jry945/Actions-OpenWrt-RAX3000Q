@@ -102,6 +102,12 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
+
+    - name: Prepare UA3F package
+      run: |
+          cd openwrt
+          mkdir -p package/UA3F
+          git clone https://github.com/SunBK201/UA3F.git package/UA3F/openwrt
    
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
